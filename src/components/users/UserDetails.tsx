@@ -9,20 +9,22 @@ interface Props {
   userId: number;
   movieId: number;
 }
+
 export function UserDetails({ userId, movieId }: Props) {
   return (
     <div>
-      <Suspense fallback={<Loading />}>
+      <h4 className="text-center mt-5">User Details</h4>
+      {/* <Suspense fallback={<Loading />}> */}
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <AccountDetails userId={userId} />
         </ErrorBoundary>
-      </Suspense>
+      {/* </Suspense> */}
       <h4 className="text-center mt-5">Favorite movie</h4>
-      <Suspense fallback={<Loading />}>
+      {/* <Suspense fallback={<Loading />}> */}
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <MovieDetails movieId={movieId} />
         </ErrorBoundary>
-      </Suspense>
+      {/* </Suspense> */}
     </div>
   );
 }
